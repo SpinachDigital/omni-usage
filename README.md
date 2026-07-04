@@ -35,6 +35,12 @@ No API calls, no network, no extra LLM cost. Just your logs, your terminal.
 | 🧩 **Zero External Dependencies** | Pure Python stdlib — works out of the box |
 | 💻 **Cross-Platform** | macOS, Linux, Windows — any terminal with ANSI support |
 
+<p align="center">
+  <a href="https://github.com/SpinachDigital/omni-usage">
+    <img src="https://raw.githubusercontent.com/SpinachDigital/omni-usage/main/docs/screenshot.svg" alt="omni-usage widget screenshot" width="90%">
+  </a>
+</p>
+
 ---
 
 ## 📦 Install
