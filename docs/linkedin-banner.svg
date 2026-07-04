@@ -1,98 +1,155 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1e1b4b;stop-opacity:1" />
+    <!-- Dark gradient background -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1a1040"/>
     </linearGradient>
-    <linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00B4D8;stop-opacity:0.15" />
-      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:0.05" />
+    
+    <!-- Glowing cyan accent -->
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00B4D8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00B4D8" />
-      <stop offset="100%" style="stop-color:#7C3AED" />
+    
+    <!-- Purple accent -->
+    <linearGradient id="purpleGlow" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00B4D8" stop-opacity="0"/>
     </linearGradient>
+    
+    <!-- Grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.5"/>
+    </pattern>
+
+    <!-- Node glow -->
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00B4D8" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#00B4D8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#00B4D8" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="nodePurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#7C3AED" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Line animation dash -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  
+
   <!-- Background -->
-  <rect width="1200" height="627" fill="url(#bg)"/>
-  
-  <!-- Glow overlay -->
-  <rect width="1200" height="627" fill="url(#glow1)"/>
-  
-  <!-- Grid pattern -->
-  <g opacity="0.03" stroke="#00B4D8" stroke-width="0.5">
-    <line x1="0" y1="0" x2="1200" y2="0"/><line x1="0" y1="50" x2="1200" y2="50"/>
-    <line x1="0" y1="100" x2="1200" y2="100"/><line x1="0" y1="150" x2="1200" y2="150"/>
-    <line x1="0" y1="200" x2="1200" y2="200"/><line x1="0" y1="250" x2="1200" y2="250"/>
-    <line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="350" x2="1200" y2="350"/>
-    <line x1="0" y1="400" x2="1200" y2="400"/><line x1="0" y1="450" x2="1200" y2="450"/>
-    <line x1="0" y1="500" x2="1200" y2="500"/><line x1="0" y1="550" x2="1200" y2="550"/>
-    <line x1="0" y1="600" x2="1200" y2="600"/>
-  </g>
-  
-  <!-- Terminal window -->
-  <rect x="60" y="60" width="1080" height="220" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <!-- Terminal title bar -->
-  <rect x="60" y="60" width="1080" height="36" rx="12" fill="#0f172a"/>
-  <rect x="60" y="84" width="1080" height="12" fill="#0f172a"/>
-  <!-- Terminal dots -->
-  <circle cx="90" cy="78" r="6" fill="#ef4444"/>
-  <circle cx="110" cy="78" r="6" fill="#f59e0b"/>
-  <circle cx="130" cy="78" r="6" fill="#22c55e"/>
-  <text x="160" y="83" font-family="monospace" font-size="14" fill="#64748b">omni-usage widget --interval 30</text>
-  
-  <!-- Terminal content - simulated dashboard -->
-  <g transform="translate(80, 110)">
-    <!-- Box top -->
-    <text font-family="monospace" font-size="14" fill="#475569">┌──────────────────────────────────────────────────────────────┐</text>
-    <text y="22" font-family="monospace" font-size="14" fill="#00B4D8" font-weight="bold">│  ⚡ omni-usage  ·  v0.1.0                                       │</text>
-    <text y="44" font-family="monospace" font-size="14" fill="#64748b">├──────────────────────────────────────────────────────────────┤</text>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Glowing orbs -->
+  <circle cx="200" cy="300" r="200" fill="url(#cyanGlow)"/>
+  <circle cx="1000" cy="300" r="200" fill="url(#purpleGlow)"/>
+
+  <!-- Network nodes and connections (AI gateway visualization) -->
+  <g filter="url(#glow)">
+    <!-- Central hub -->
+    <circle cx="600" cy="310" r="65" fill="#0f172a" stroke="#00B4D8" stroke-width="2"/>
+    <circle cx="600" cy="310" r="55" fill="url(#nodeGlow)"/>
+    <text x="600" y="316" text-anchor="middle" font-family="monospace" font-size="11" fill="#00E5FF" font-weight="bold">OMNI</text>
+    <text x="600" y="330" text-anchor="middle" font-family="monospace" font-size="11" fill="#00E5FF" font-weight="bold">ROUTE</text>
+
+    <!-- Connected nodes -->
+    <!-- Top left - Claude -->
+    <circle cx="250" cy="180" r="40" fill="#0f172a" stroke="#7C3AED" stroke-width="1.5"/>
+    <circle cx="250" cy="180" r="32" fill="url(#nodePurple)"/>
+    <text x="250" y="184" text-anchor="middle" font-family="monospace" font-size="9" fill="#D8B4FE" font-weight="bold">Claude</text>
     
-    <!-- Stats columns -->
-    <text y="66" font-family="monospace" font-size="13" fill="#f59e0b">│  ⏳ Session (5m)     📅 Today            📊 All Time        │</text>
-    <text y="88" font-family="monospace" font-size="13" fill="#e2e8f0">│  Req 20             Req 473            Req 728             │</text>
-    <text y="110" font-family="monospace" font-size="13" fill="#22c55e">│  Tok 5.8M           In  64.7M          ✓  475              │</text>
-    <text y="132" font-family="monospace" font-size="13" fill="#ef4444">│                     Out 163K           ✗  253              │</text>
+    <!-- Top right - GPT -->
+    <circle cx="950" cy="180" r="40" fill="#0f172a" stroke="#00B4D8" stroke-width="1.5"/>
+    <circle cx="950" cy="180" r="32" fill="url(#nodeGlow)"/>
+    <text x="950" y="184" text-anchor="middle" font-family="monospace" font-size="9" fill="#67E8F9" font-weight="bold">GPT-5</text>
     
-    <text y="154" font-family="monospace" font-size="13" fill="#64748b">├──────────────────────────────────────────────────────────────┤</text>
-    <text y="176" font-family="monospace" font-size="14" fill="#e2e8f0">│  🤖 Models Used (by token volume)                            │</text>
-    <text y="198" font-family="monospace" font-size="13" fill="#e2e8f0">│  big-pickle            425    69.0M    ✓                     │</text>
-    <text y="220" font-family="monospace" font-size="13" fill="#e2e8f0">│  GPT_5_4                51     750K  ⚠14                     │</text>
+    <!-- Mid left - Gemini -->
+    <circle cx="150" cy="350" r="35" fill="#0f172a" stroke="#7C3AED" stroke-width="1.5"/>
+    <circle cx="150" cy="350" r="28" fill="url(#nodePurple)"/>
+    <text x="150" y="354" text-anchor="middle" font-family="monospace" font-size="9" fill="#D8B4FE" font-weight="bold">Gemini</text>
+    
+    <!-- Mid right - DeepSeek -->
+    <circle cx="1050" cy="350" r="35" fill="#0f172a" stroke="#00B4D8" stroke-width="1.5"/>
+    <circle cx="1050" cy="350" r="28" fill="url(#nodeGlow)"/>
+    <text x="1050" y="354" text-anchor="middle" font-family="monospace" font-size="9" fill="#67E8F9" font-weight="bold">DeepSeek</text>
+
+    <!-- Bottom left - Grok -->
+    <circle cx="300" cy="470" r="35" fill="#0f172a" stroke="#7C3AED" stroke-width="1.5"/>
+    <circle cx="300" cy="470" r="28" fill="url(#nodePurple)"/>
+    <text x="300" y="474" text-anchor="middle" font-family="monospace" font-size="9" fill="#D8B4FE" font-weight="bold">Grok</text>
+    
+    <!-- Bottom right - Llama -->
+    <circle cx="900" cy="470" r="35" fill="#0f172a" stroke="#00B4D8" stroke-width="1.5"/>
+    <circle cx="900" cy="470" r="28" fill="url(#nodeGlow)"/>
+    <text x="900" y="474" text-anchor="middle" font-family="monospace" font-size="9" fill="#67E8F9" font-weight="bold">Mistral</text>
+
+    <!-- Connection lines between nodes and central hub -->
+    <g stroke="#00B4D8" stroke-width="1" opacity="0.4" fill="none">
+      <!-- Claude to center -->
+      <path d="M290 180 C400 180 450 310 535 310" stroke="#7C3AED" opacity="0.5"/>
+      <!-- GPT to center -->
+      <path d="M910 180 C800 180 750 310 665 310" stroke="#00B4D8" opacity="0.5"/>
+      <!-- Gemini to center -->
+      <path d="M185 350 C300 350 400 310 535 310" stroke="#7C3AED" opacity="0.5"/>
+      <!-- DeepSeek to center -->
+      <path d="M1015 350 C900 350 800 310 665 310" stroke="#00B4D8" opacity="0.5"/>
+      <!-- Grok to center -->
+      <path d="M335 470 C400 470 450 400 535 340" stroke="#7C3AED" opacity="0.5"/>
+      <!-- Mistral to center -->
+      <path d="M865 470 C800 470 750 400 665 340" stroke="#00B4D8" opacity="0.5"/>
+    </g>
+    
+    <!-- Animated data packets (small circles on paths) -->
+    <circle cx="350" cy="200" r="4" fill="#D8B4FE" opacity="0.8">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M290 180 C400 180 450 310 535 310"/>
+    </circle>
+    <circle cx="850" cy="200" r="4" fill="#67E8F9" opacity="0.8">
+      <animateMotion dur="3s" repeatCount="indefinite" path="M910 180 C800 180 750 310 665 310"/>
+    </circle>
+    <circle cx="420" cy="320" r="3" fill="#D8B4FE" opacity="0.8">
+      <animateMotion dur="4s" repeatCount="indefinite" path="M185 350 C300 350 400 310 535 310"/>
+    </circle>
+    <circle cx="550" cy="420" r="3" fill="#67E8F9" opacity="0.8">
+      <animateMotion dur="3.5s" repeatCount="indefinite" path="M335 470 C400 470 450 400 535 340"/>
+    </circle>
   </g>
 
-  <!-- Bottom section -->
-  <g transform="translate(80, 300)">
-    <text y="0" font-family="monospace" font-size="14" fill="#64748b">├──────────────────────────────────────────────────────────────┤</text>
-    <text y="22" font-family="monospace" font-size="14" fill="#e2e8f0">│  🎯 Route Combos (by token volume)                           │</text>
-    <text y="44" font-family="monospace" font-size="13" fill="#e2e8f0">│  auto/claude-opus            34.2M                           │</text>
-    <text y="66" font-family="monospace" font-size="13" fill="#e2e8f0">│  auto/pro-coding             23.3M                           │</text>
-    <text y="88" font-family="monospace" font-size="13" fill="#64748b">├──────────────────────────────────────────────────────────────┤</text>
-    <text y="110" font-family="monospace" font-size="14" fill="#00B4D8">│  Now: auto/claude-opus  ·  🔥 96% cache saved  ·  Ctrl+C    │</text>
-    <text y="132" font-family="monospace" font-size="14" fill="#475569">└──────────────────────────────────────────────────────────────┘</text>
+  <!-- Header Title -->
+  <text x="600" y="80" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#64748b" letter-spacing="4" text-transform="uppercase">How I Built</text>
+  <text x="600" y="125" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="bold" fill="#f8fafc" letter-spacing="2">OmniRoute</text>
+  
+  <!-- Accent bar under title -->
+  <rect x="420" y="140" width="360" height="3" rx="2" fill="url(#cyanGlow)"/>
+
+  <!-- Feature badges at bottom -->
+  <g transform="translate(100, 555)">
+    <rect x="0" y="0" width="220" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="110" y="23" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#00B4D8">🌐 237+ AI Providers</text>
+    
+    <rect x="250" y="0" width="200" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="350" y="23" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#7C3AED">🆓 90+ Free Tiers</text>
+    
+    <rect x="480" y="0" width="240" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="600" y="23" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#22c55e">🔄 Smart Auto-Fallback</text>
+
+    <rect x="750" y="0" width="200" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="850" y="23" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#f59e0b">💰 95% Token Savings</text>
+    
+    <rect x="980" y="0" width="120" height="36" rx="18" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="1040" y="23" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ef4444">MIT</text>
   </g>
-  
-  <!-- Title -->
-  <text x="600" y="420" text-anchor="middle" font-family="sans-serif" font-size="42" font-weight="bold" fill="#f8fafc">omni-usage</text>
-  <text x="600" y="456" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#94a3b8">Token Usage Dashboard for OmniRoute</text>
-  
-  <!-- Accent line -->
-  <rect x="400" y="478" width="400" height="3" rx="2" fill="url(#accent)"/>
-  
-  <!-- Feature pills -->
-  <g transform="translate(150, 510)">
-    <rect x="0" y="0" width="160" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="80" y="21" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#00B4D8">⚡ Live TUI</text>
-    <rect x="180" y="0" width="180" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="270" y="21" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#7C3AED">🔍 Zero Dependencies</text>
-    <rect x="380" y="0" width="200" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="480" y="21" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#22c55e">🔥 Cache Tracking</text>
-    <rect x="600" y="0" width="200" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="700" y="21" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#f59e0b">📊 Per-Model Stats</text>
-    <rect x="820" y="0" width="150" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-    <text x="895" y="21" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ef4444">🐍 Python</text>
-  </g>
-  
-  <!-- GitHub link -->
-  <text x="600" y="580" text-anchor="middle" font-family="monospace" font-size="14" fill="#475569">github.com/SpinachDigital/omni-usage</text>
+
+  <!-- GitHub URL -->
+  <text x="600" y="620" text-anchor="middle" font-family="monospace" font-size="12" fill="#475569">github.com/SpinachDigital/omni-usage</text>
 </svg>
