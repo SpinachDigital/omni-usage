@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "omni-usage"
+version = "0.1.0"
+description = "Token usage dashboard for OmniRoute"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+  {name = "omni-usage contributors"},
+]
+requires-python = ">=3.10"
+dependencies = [
+  "rich>=13.0",
+]
+keywords = ["omniroute", "tokens", "usage", "dashboard", "ai-gateway"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/omniroute-community/omni-usage"
+Repository = "https://github.com/omniroute-community/omni-usage"
+Documentation = "https://github.com/omniroute-community/omni-usage"
+
+[project.scripts]
+omni-usage = "omni_usage.cli:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/omni_usage"]
