@@ -4,10 +4,10 @@
 
 **Token usage dashboard for OmniRoute — live TUI, one-shot reports, single-line peek**
 
-[![PyPI](https://img.shields.io/pypi/v/omni-usage?style=flat-square&color=00B4D8&logo=pypi&logoColor=white)](https://pypi.org/project/omni-usage/)
-[![Python](https://img.shields.io/pypi/pyversions/omni-usage?style=flat-square&color=3776AB&logo=python&logoColor=white)](https://pypi.org/project/omni-usage/)
+[![PyPI](https://img.shields.io/pypi/v/omni-usage?style=flat-square&color=00B4D8&logo=pypi&logoColor=white&cacheSeconds=0)](https://pypi.org/project/omni-usage/)
+[![Python](https://img.shields.io/pypi/pyversions/omni-usage?style=flat-square&color=3776AB&logo=python&logoColor=white&cacheSeconds=0)](https://pypi.org/project/omni-usage/)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat-square)](https://pypi.org/project/omni-usage/)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey?style=flat-square&cacheSeconds=0)](https://pypi.org/project/omni-usage/)
 [![Stars](https://img.shields.io/github/stars/SpinachDigital/omni-usage?style=flat-square&color=FFD700&logo=github)](https://github.com/SpinachDigital/omni-usage)
 
 </div>
