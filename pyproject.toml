@@ -29,9 +29,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/omniroute-community/omni-usage"
-Repository = "https://github.com/omniroute-community/omni-usage"
-Documentation = "https://github.com/omniroute-community/omni-usage"
+Homepage = "https://github.com/SpinachDigital/omni-usage"
+Repository = "https://github.com/SpinachDigital/omni-usage"
+Documentation = "https://github.com/SpinachDigital/omni-usage"
 
 [project.scripts]
 omni-usage = "omni_usage.cli:main"
